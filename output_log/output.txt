@@ -1,0 +1,671 @@
+QuestaSim-64 qrun 2024.3_1 Utility 2024.10 Oct 17 2024
+Start time: 07:26:04 on Jan 11,2025
+qrun -batch -access=rw+/. -uvmhome uvm-1.2 -timescale 1ns/1ns -mfcu design.sv testbench.sv -voptargs="+acc=npr" -do " run -all; exit" 
+Creating library 'qrun.out/work'.
+Mapping library 'mtiUvm' to 'qrun.out/work'.
+QuestaSim-64 vlog 2024.3_1 Compiler 2024.10 Oct 17 2024
+Start time: 07:26:04 on Jan 11,2025
+vlog -timescale 1ns/1ns -mfcu -ccflags "-Wno-missing-declarations" -ccflags "-Wno-maybe-uninitialized" -ccflags "-Wno-return-type" -ccflags "-DQUESTA" /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc /usr/share/questa/questasim/verilog_src/uvm-1.2/src/uvm_pkg.sv /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv design.sv testbench.sv -work qrun.out/work "+incdir+/usr/share/questa/questasim/verilog_src/uvm-1.2/src" -statslog qrun.out/stats_log -writesessionid "+qrun.out/top_dus" -csession=incr 
+-- Compiling package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling package questa_uvm_pkg
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Compiling module apb_design
+-- Compiling package uvm_pkg_sv_unit
+-- Importing package uvm_pkg (uvm-1.2 Built-in)
+-- Importing package apb_package
+-- Compiling package apb_package
+** Warning: apb_sequence.sv(43): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: apb_sequence.sv(224): (vlog-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+-- Compiling interface apb_interface
+-- Compiling module apb_tb_top
+
+Top level modules:
+	apb_tb_top
+-- Compiling DPI/PLI C++ file /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc
+
+In file included from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl.c:27,
+                 from /usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_dpi.cc:37:
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c: In function 'int uvm_is_vhdl_path(char*)':
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:90:12: warning: 'char* strncpy(char*, const char*, size_t)' specified bound depends on the length of the source argument [-Wstringop-overflow=]
+   90 |     strncpy(path_copy, path, path_len);
+      |     ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/usr/share/questa/questasim/verilog_src/uvm-1.2/src/dpi/uvm_hdl_questa.c:72:20: note: length computed here
+   72 |   path_len = strlen(path);
+      |              ~~~~~~^~~~~~
+
+End time: 07:26:08 on Jan 11,2025, Elapsed time: 0:00:04
+Errors: 0, Warnings: 2
+QuestaSim-64 vopt 2024.3_1 Compiler 2024.10 Oct 17 2024
+** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+Start time: 07:26:08 on Jan 11,2025
+vopt -access=rw+/. -timescale 1ns/1ns -mfcu "+acc=npr" -findtoplevels qrun.out/work+1+ -work qrun.out/work -statslog qrun.out/stats_log -csession=incr -o qrun_opt -csessionid=2 
+
+Top level modules:
+	apb_tb_top
+
+Analyzing design...
+-- Loading module apb_tb_top
+-- Loading package questa_uvm_pkg
+-- Loading interface apb_interface
+-- Loading module apb_design
+Optimizing 8 design-units (inlining 0/3 module instances):
+-- Optimizing package uvm_pkg (uvm-1.2 Built-in)(fast)
+-- Optimizing package questa_uvm_pkg(fast)
+-- Optimizing package apb_package(fast)
+** Warning: apb_sequence.sv(43): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+** Warning: apb_sequence.sv(224): (vopt-2240) Treating stand-alone use of function 'randomize' as an implicit VOID cast.
+-- Optimizing package uvm_pkg_sv_unit(fast)
+-- Optimizing interface apb_interface(fast__2)
+-- Optimizing module apb_design(fast)
+-- Optimizing module apb_tb_top(fast)
+-- Optimizing interface apb_interface(fast)
+Optimized design name is qrun_opt
+End time: 07:26:15 on Jan 11,2025, Elapsed time: 0:00:07
+Errors: 0, Warnings: 3
+# vsim -batch -lib qrun.out/work -do " run -all; exit" -statslog qrun.out/stats_log qrun_opt -appendlog -l qrun.log 
+# Start time: 07:26:15 on Jan 11,2025
+# Loading /tmp/unknown@99cffef40049_dpi_52/linux_x86_64_gcc-10.3.0/export_tramp.so
+# //  Questa Sim-64
+# //  Version 2024.3_1 linux_x86_64 Oct 17 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.apb_interface(fast)
+# Loading work.uvm_pkg(fast)
+# Loading work.apb_package(fast)
+# Loading work.uvm_pkg_sv_unit(fast)
+# Loading work.questa_uvm_pkg(fast)
+# Loading work.apb_tb_top(fast)
+# Loading work.apb_interface(fast__2)
+# Loading work.apb_design(fast)
+# Compiling /tmp/unknown@99cffef40049_dpi_52/linux_x86_64_gcc-10.3.0/exportwrapper.c
+# Loading /tmp/unknown@99cffef40049_dpi_52/linux_x86_64_gcc-10.3.0/vsim_auto_compile.so
+# 
+# run -all
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(277) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO /usr/share/questa/questasim/verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(278) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO apb_test.sv(13) @ 0: uvm_test_top [apb_test] inside test new
+# UVM_INFO @ 0: reporter [RNTST] Running test apb_test...
+# UVM_INFO apb_environment.sv(13) @ 0: uvm_test_top.h_apb_env [apb_env] inside env new
+# UVM_INFO apb_virtual_sequence.sv(11) @ 0: reporter@@h_apb_vseq [apb_vseq] inside vseq new
+# UVM_INFO master_agent_config.sv(17) @ 0: reporter [master_agent_config] Inside new
+# UVM_INFO slave_agent_config.sv(17) @ 0: reporter [master_agent_config] Inside new
+# UVM_INFO apb_test.sv(32) @ 0: uvm_test_top [apb_test] inside test build phase
+# UVM_INFO apb_environment.sv(18) @ 0: uvm_test_top.h_apb_env [Env] Inside build phase
+# UVM_INFO apb_master_agent.sv(11) @ 0: uvm_test_top.h_apb_env.h_m_agent [ip_agent] inside ip agent new
+# UVM_INFO apb_slave_agent.sv(8) @ 0: uvm_test_top.h_apb_env.h_s_agent [op_agent] inside op agent new
+# UVM_INFO apb_scoreboard.sv(116) @ 0: uvm_test_top.h_apb_env.h_scbd [apb_scoreboard] inside apb_scoreboard new
+# UVM_INFO apb_virtual_sequencer.sv(8) @ 0: uvm_test_top.h_apb_env.h_vseqr [apb_vseqr] inside vseqr new
+# UVM_INFO apb_functional_coverage.sv(22) @ 0: uvm_test_top.h_apb_env.h_fn_cov [fn cov new] inside fn new method
+# UVM_INFO apb_master_agent.sv(16) @ 0: uvm_test_top.h_apb_env.h_m_agent [m_agent] Inside m_agent build phase
+# UVM_INFO apb_master_sequencer.sv(6) @ 0: uvm_test_top.h_apb_env.h_m_agent.h_ip_seqr [apb_seqr] inside seqr new
+# UVM_INFO apb_master_driver.sv(8) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_driv [apb_master_driver] inside apb_master_driver new
+# UVM_INFO apb_master_monitor.sv(9) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_mon [ip_mon] inside ip mon new
+# UVM_INFO apb_master_sequencer.sv(11) @ 0: uvm_test_top.h_apb_env.h_m_agent.h_ip_seqr [apb_seqr] inside seqr build phase
+# UVM_INFO apb_master_driver.sv(14) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_driv [apb_master_driver] inside apb_master_driver build phase
+# UVM_INFO apb_master_monitor.sv(16) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_mon [ip_mon] inside ip mon build phase
+# UVM_INFO apb_slave_agent.sv(13) @ 0: uvm_test_top.h_apb_env.h_s_agent [m_agent] Inside m_agent build phase
+# UVM_INFO apb_slave_monitor.sv(9) @ 0: uvm_test_top.h_apb_env.h_s_agent.op_mon [op_mon] inside op mon new
+# UVM_INFO apb_slave_monitor.sv(16) @ 0: uvm_test_top.h_apb_env.h_s_agent.op_mon [op_mon] inside op mon build phase
+# UVM_INFO apb_scoreboard.sv(121) @ 0: uvm_test_top.h_apb_env.h_scbd [apb_scoreboard] inside apb_scoreboard build phase
+# UVM_INFO apb_master_sequencer.sv(16) @ 0: uvm_test_top.h_apb_env.h_m_agent.h_ip_seqr [apb_seqr] inside seqr connect phase
+# UVM_INFO apb_master_driver.sv(24) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_driv [driver] config get success at master driver!!
+# UVM_INFO apb_master_driver.sv(26) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_driv [apb_master_driver] inside apb_master_driver connect phase
+# UVM_INFO apb_master_monitor.sv(27) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_mon [ip_mon] config get success at ip mon!!
+# UVM_INFO apb_master_monitor.sv(29) @ 0: uvm_test_top.h_apb_env.h_m_agent.ip_mon [ip_mon] inside ip mon connect phase
+# UVM_INFO apb_master_agent.sv(43) @ 0: uvm_test_top.h_apb_env.h_m_agent [ip_agent connect phase] seq to driver connection success !!
+# UVM_INFO apb_slave_monitor.sv(26) @ 0: uvm_test_top.h_apb_env.h_s_agent.op_mon [op_mon] config get success at op mon!!
+# UVM_INFO apb_slave_monitor.sv(28) @ 0: uvm_test_top.h_apb_env.h_s_agent.op_mon [op_mon] inside op mon connect phase
+# UVM_INFO apb_slave_agent.sv(29) @ 0: uvm_test_top.h_apb_env.h_s_agent [op_agent] inside op agent connect phase
+# UVM_INFO apb_scoreboard.sv(128) @ 0: uvm_test_top.h_apb_env.h_scbd [apb_scoreboard] inside apb_scoreboard connect phase
+# UVM_INFO apb_environment.sv(60) @ 0: uvm_test_top.h_apb_env [apb_env] inside env connect phase
+# UVM_INFO apb_test.sv(37) @ 0: uvm_test_top [apb_test] inside test connect phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(579) @ 0: reporter [UVMTOP] UVM testbench topology:
+# --------------------------------------------------------------------
+# Name                            Type                     Size  Value
+# --------------------------------------------------------------------
+# uvm_test_top                    apb_test                 -     @363 
+#   h_apb_env                     apb_environment          -     @377 
+#     h_fn_cov                    apb_functional_coverage  -     @574 
+#       analysis_imp              uvm_analysis_imp         -     @582 
+#     h_m_agent                   apb_master_agent         -     @419 
+#       h_ip_seqr                 apb_master_sequencer     -     @601 
+#         rsp_export              uvm_analysis_export      -     @609 
+#         seq_item_export         uvm_seq_item_pull_imp    -     @715 
+#         arbitration_queue       array                    0     -    
+#         lock_queue              array                    0     -    
+#         num_last_reqs           integral                 32    'd1  
+#         num_last_rsps           integral                 32    'd1  
+#       ip_driv                   apb_master_driver        -     @726 
+#         rsp_port                uvm_analysis_port        -     @743 
+#         seq_item_port           uvm_seq_item_pull_port   -     @734 
+#       ip_mon                    apb_master_monitor       -     @754 
+#         master_mon2scbd         uvm_analysis_port        -     @777 
+#     h_s_agent                   apb_slave_agent          -     @429 
+#       op_mon                    apb_slave_monitor        -     @796 
+#         slave_mon2scbd          uvm_analysis_port        -     @806 
+#     h_scbd                      apb_scoreboard           -     @439 
+#       master_mon2scbd_imp_port  uvm_analysis_imp_ip_imp  -     @823 
+#       slave_mon2scbd_imp_port   uvm_analysis_imp_op_imp  -     @832 
+#     h_vseqr                     apb_virtual_sequencer    -     @449 
+#       rsp_export                uvm_analysis_export      -     @457 
+#       seq_item_export           uvm_seq_item_pull_imp    -     @563 
+#       arbitration_queue         array                    0     -    
+#       lock_queue                array                    0     -    
+#       num_last_reqs             integral                 32    'd1  
+#       num_last_rsps             integral                 32    'd1  
+# --------------------------------------------------------------------
+# 
+# UVM_INFO apb_environment.sv(65) @ 0: uvm_test_top.h_apb_env [apb_env] inside env run phase
+# UVM_INFO apb_slave_agent.sv(34) @ 0: uvm_test_top.h_apb_env.h_s_agent [op_agent] inside op agent run phase
+# UVM_INFO apb_master_agent.sv(48) @ 0: uvm_test_top.h_apb_env.h_m_agent [ip_agent] inside ip agent run phase
+# UVM_INFO apb_master_sequencer.sv(21) @ 0: uvm_test_top.h_apb_env.h_m_agent.h_ip_seqr [apb_seqr] inside seqr run phase
+# UVM_INFO apb_sequence.sv(9) @ 0: reporter@@h_s_wr_seq [apb_s_seq] inside seq new
+# UVM_INFO apb_sequence.sv(9) @ 0: reporter@@h_m_wr_seq [apb_s_seq] inside seq new
+# UVM_INFO apb_sequence.sv(210) @ 0: reporter@@h_m_wr_seq [apb_m_seq] inside seq new
+# UVM_INFO apb_sequence.sv(9) @ 0: reporter@@h_alt_wr_seq [apb_s_seq] inside seq new
+# UVM_INFO apb_sequence.sv(210) @ 0: reporter@@h_alt_wr_seq [apb_m_seq] inside seq new
+# UVM_INFO apb_sequence.sv(250) @ 0: reporter@@h_alt_wr_seq [apb_m_seq] inside seq new
+# UVM_INFO apb_sequence.sv(9) @ 0: reporter@@h_slv_err_chck_seq [apb_s_seq] inside seq new
+# UVM_INFO apb_sequence.sv(210) @ 0: reporter@@h_slv_err_chck_seq [apb_m_seq] inside seq new
+# UVM_INFO apb_sequence.sv(250) @ 0: reporter@@h_slv_err_chck_seq [apb_m_seq] inside seq new
+# UVM_INFO apb_sequence.sv(268) @ 0: reporter@@h_slv_err_chck_seq [apb_m_seq] inside seq new
+# ** Error: Assertion error.
+#    Time: 9 ns Started: 9 ns  Scope: apb_tb_top.intf File: apb_interface.sv Line: 42
+# UVM_INFO apb_functional_coverage.sv(29) @ 21: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 60
+# UVM_INFO apb_scoreboard.sv(132) @ 21: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 27: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 60
+# UVM_INFO apb_scoreboard.sv(132) @ 27: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 33: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 60
+# UVM_INFO apb_scoreboard.sv(132) @ 33: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 45: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 60
+# UVM_INFO apb_scoreboard.sv(137) @ 45: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=0
+# UVM_INFO apb_functional_coverage.sv(29) @ 51: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 60
+# UVM_INFO apb_scoreboard.sv(137) @ 51: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=0
+# UVM_INFO apb_functional_coverage.sv(29) @ 57: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 61
+# UVM_INFO apb_scoreboard.sv(137) @ 57: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 69: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 64
+# UVM_INFO apb_scoreboard.sv(132) @ 69: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=151
+# UVM_INFO apb_scoreboard.sv(153) @ 71: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 75: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 64
+# UVM_INFO apb_scoreboard.sv(132) @ 75: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=151
+# UVM_INFO apb_functional_coverage.sv(29) @ 81: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 64
+# UVM_INFO apb_scoreboard.sv(132) @ 81: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=151
+# UVM_INFO apb_functional_coverage.sv(29) @ 93: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 67
+# UVM_INFO apb_scoreboard.sv(132) @ 93: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=172
+# UVM_INFO apb_functional_coverage.sv(29) @ 99: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 67
+# UVM_INFO apb_scoreboard.sv(132) @ 99: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=172
+# UVM_INFO apb_functional_coverage.sv(29) @ 105: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 67
+# UVM_INFO apb_scoreboard.sv(132) @ 105: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=172
+# UVM_INFO apb_functional_coverage.sv(29) @ 117: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 69
+# UVM_INFO apb_scoreboard.sv(132) @ 117: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=11, pwdata=159
+# UVM_INFO apb_scoreboard.sv(153) @ 121: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 123: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 69
+# UVM_INFO apb_scoreboard.sv(132) @ 123: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=11, pwdata=159
+# UVM_INFO apb_functional_coverage.sv(29) @ 129: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 69
+# UVM_INFO apb_scoreboard.sv(132) @ 129: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=11, pwdata=159
+# UVM_INFO apb_functional_coverage.sv(29) @ 141: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 141: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=23, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 147: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 147: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=23, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 153: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 153: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=23, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 165: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 165: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=128
+# UVM_INFO apb_scoreboard.sv(153) @ 171: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 171: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 171: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 177: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 71
+# UVM_INFO apb_scoreboard.sv(132) @ 177: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 189: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 73
+# UVM_INFO apb_scoreboard.sv(132) @ 189: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=3, pwdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 195: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 73
+# UVM_INFO apb_scoreboard.sv(132) @ 195: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=3, pwdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 201: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 73
+# UVM_INFO apb_scoreboard.sv(132) @ 201: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=3, pwdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 213: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 74
+# UVM_INFO apb_scoreboard.sv(132) @ 213: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=29, pwdata=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 219: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 74
+# UVM_INFO apb_scoreboard.sv(132) @ 219: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=29, pwdata=102
+# UVM_INFO apb_scoreboard.sv(153) @ 221: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 225: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 74
+# UVM_INFO apb_scoreboard.sv(132) @ 225: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=29, pwdata=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 237: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(132) @ 237: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=24, pwdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 243: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(132) @ 243: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=24, pwdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 249: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(132) @ 249: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=24, pwdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 261: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(137) @ 261: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 267: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(137) @ 267: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=129
+# UVM_INFO apb_scoreboard.sv(156) @ 271: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=129, exp data=128
+# UVM_INFO apb_scoreboard.sv(153) @ 271: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 273: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(137) @ 273: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 285: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(137) @ 285: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 291: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 76
+# UVM_INFO apb_scoreboard.sv(137) @ 291: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 297: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 77
+# UVM_INFO apb_scoreboard.sv(137) @ 297: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=172
+# UVM_INFO apb_functional_coverage.sv(29) @ 309: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 77
+# UVM_INFO apb_scoreboard.sv(137) @ 309: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=11, prdata=172
+# UVM_INFO apb_functional_coverage.sv(29) @ 315: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 77
+# UVM_INFO apb_scoreboard.sv(137) @ 315: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=11, prdata=172
+# UVM_INFO apb_scoreboard.sv(153) @ 321: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=128, exp data=128
+# UVM_INFO apb_scoreboard.sv(156) @ 321: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=172, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 321: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 321: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 321: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 79
+# UVM_INFO apb_scoreboard.sv(137) @ 321: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=11, prdata=159
+# UVM_INFO apb_functional_coverage.sv(29) @ 333: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 79
+# UVM_INFO apb_scoreboard.sv(137) @ 333: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=23, prdata=159
+# UVM_INFO apb_functional_coverage.sv(29) @ 339: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 79
+# UVM_INFO apb_scoreboard.sv(137) @ 339: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=23, prdata=159
+# UVM_INFO apb_functional_coverage.sv(29) @ 345: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 345: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=23, prdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 357: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 357: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 363: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 363: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 369: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 369: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=128
+# UVM_INFO apb_scoreboard.sv(153) @ 371: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=128, exp data=128
+# UVM_INFO apb_scoreboard.sv(153) @ 371: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 371: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 371: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 371: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_functional_coverage.sv(29) @ 381: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 381: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=3, prdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 387: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 387: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=3, prdata=128
+# UVM_INFO apb_functional_coverage.sv(29) @ 393: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 393: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=3, prdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 405: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 405: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=29, prdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 411: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 80
+# UVM_INFO apb_scoreboard.sv(137) @ 411: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=29, prdata=152
+# UVM_INFO apb_functional_coverage.sv(29) @ 417: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 417: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=29, prdata=102
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=128, exp data=128
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=129, exp data=129
+# UVM_INFO apb_scoreboard.sv(153) @ 421: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 429: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 429: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=24, prdata=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 435: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 435: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=24, prdata=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 441: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 441: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=24, prdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 453: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 453: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=122
+# UVM_INFO apb_functional_coverage.sv(29) @ 459: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 459: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=122
+# UVM_INFO apb_functional_coverage.sv(29) @ 465: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 465: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=28, pwdata=122
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=128, exp data=128
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(156) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=129, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 471: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 477: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 477: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 483: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 483: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=147
+# UVM_INFO apb_functional_coverage.sv(29) @ 489: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 489: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=28, prdata=122
+# UVM_INFO apb_functional_coverage.sv(29) @ 501: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 501: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=173
+# UVM_INFO apb_functional_coverage.sv(29) @ 507: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 507: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=173
+# UVM_INFO apb_functional_coverage.sv(29) @ 513: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 513: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=6, pwdata=173
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(156) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=128, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 521: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 525: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 525: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=122
+# UVM_INFO apb_functional_coverage.sv(29) @ 531: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 531: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=122
+# UVM_INFO apb_functional_coverage.sv(29) @ 537: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 537: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=6, prdata=173
+# UVM_INFO apb_functional_coverage.sv(29) @ 549: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 549: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 555: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 555: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 561: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(132) @ 561: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=127
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=172, exp data=172
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 571: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 573: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 573: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=173
+# UVM_INFO apb_functional_coverage.sv(29) @ 579: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 579: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=173
+# UVM_INFO apb_functional_coverage.sv(29) @ 585: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 81
+# UVM_INFO apb_scoreboard.sv(137) @ 585: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 597: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 83
+# UVM_INFO apb_scoreboard.sv(132) @ 597: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=193
+# UVM_INFO apb_functional_coverage.sv(29) @ 603: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 83
+# UVM_INFO apb_scoreboard.sv(132) @ 603: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=193
+# UVM_INFO apb_functional_coverage.sv(29) @ 609: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 83
+# UVM_INFO apb_scoreboard.sv(132) @ 609: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=15, pwdata=193
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(156) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=172, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 621: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 621: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 83
+# UVM_INFO apb_scoreboard.sv(137) @ 621: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 627: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 83
+# UVM_INFO apb_scoreboard.sv(137) @ 627: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 633: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 84
+# UVM_INFO apb_scoreboard.sv(137) @ 633: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=15, prdata=193
+# UVM_INFO apb_functional_coverage.sv(29) @ 645: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(132) @ 645: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=12, pwdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 651: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(132) @ 651: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=12, pwdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 657: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(132) @ 657: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=12, pwdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 669: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(137) @ 669: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=12, prdata=193
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(156) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=193, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 671: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 675: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(137) @ 675: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=12, prdata=193
+# UVM_INFO apb_functional_coverage.sv(29) @ 681: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 86
+# UVM_INFO apb_scoreboard.sv(137) @ 681: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=12, prdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 693: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 87
+# UVM_INFO apb_scoreboard.sv(132) @ 693: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=14, pwdata=161
+# UVM_INFO apb_functional_coverage.sv(29) @ 699: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 87
+# UVM_INFO apb_scoreboard.sv(132) @ 699: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=14, pwdata=161
+# UVM_INFO apb_functional_coverage.sv(29) @ 705: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 87
+# UVM_INFO apb_scoreboard.sv(132) @ 705: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=14, pwdata=161
+# UVM_INFO apb_functional_coverage.sv(29) @ 717: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 87
+# UVM_INFO apb_scoreboard.sv(137) @ 717: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=14, prdata=127
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(156) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=127, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 721: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 723: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 87
+# UVM_INFO apb_scoreboard.sv(137) @ 723: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=14, prdata=127
+# UVM_INFO apb_functional_coverage.sv(29) @ 729: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 89
+# UVM_INFO apb_scoreboard.sv(137) @ 729: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=14, prdata=161
+# UVM_INFO apb_functional_coverage.sv(29) @ 741: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 90
+# UVM_INFO apb_scoreboard.sv(132) @ 741: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=10, pwdata=138
+# UVM_INFO apb_functional_coverage.sv(29) @ 747: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 90
+# UVM_INFO apb_scoreboard.sv(132) @ 747: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=10, pwdata=138
+# UVM_INFO apb_functional_coverage.sv(29) @ 753: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 90
+# UVM_INFO apb_scoreboard.sv(132) @ 753: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=10, pwdata=138
+# UVM_INFO apb_functional_coverage.sv(29) @ 765: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 90
+# UVM_INFO apb_scoreboard.sv(137) @ 765: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=10, prdata=161
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(156) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=161, exp data=138
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=161, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 771: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 771: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 90
+# UVM_INFO apb_scoreboard.sv(137) @ 771: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=10, prdata=161
+# UVM_INFO apb_functional_coverage.sv(29) @ 777: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 777: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=10, prdata=138
+# UVM_INFO apb_functional_coverage.sv(29) @ 789: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 789: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=22, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 795: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 795: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=22, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 801: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 801: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=22, pwdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 813: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 813: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=22, prdata=138
+# UVM_INFO apb_functional_coverage.sv(29) @ 819: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 819: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=22, prdata=138
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=138, exp data=138
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=161, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(156) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=138, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 821: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 825: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 825: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=22, prdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 837: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 837: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=163
+# UVM_INFO apb_functional_coverage.sv(29) @ 843: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 843: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=163
+# UVM_INFO apb_functional_coverage.sv(29) @ 849: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 849: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=21, pwdata=163
+# UVM_INFO apb_functional_coverage.sv(29) @ 861: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 861: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=148
+# UVM_INFO apb_functional_coverage.sv(29) @ 867: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 867: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=148
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=138, exp data=138
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=161, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(156) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=148, exp data=163
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 871: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 873: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 873: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=21, prdata=163
+# UVM_INFO apb_functional_coverage.sv(29) @ 885: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 885: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=25, pwdata=197
+# UVM_INFO apb_functional_coverage.sv(29) @ 891: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 891: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=25, pwdata=197
+# UVM_INFO apb_functional_coverage.sv(29) @ 897: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(132) @ 897: uvm_test_top.h_apb_env.h_scbd [write_ip_imp] Storing data: paddr=25, pwdata=197
+# UVM_INFO apb_functional_coverage.sv(29) @ 909: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 909: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=25, prdata=163
+# UVM_INFO apb_functional_coverage.sv(29) @ 915: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 915: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=25, prdata=163
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=138, exp data=138
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=161, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=163, exp data=163
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(156) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS NOT MATCHED!! act data=163, exp data=197
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 921: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_functional_coverage.sv(29) @ 921: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 921: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=25, prdata=197
+# UVM_INFO apb_virtual_sequence.sv(36) @ 921: uvm_test_top.h_apb_env.h_vseqr@@h_apb_vseq [apb_vseq] inside vseq body task
+# UVM_INFO apb_functional_coverage.sv(29) @ 933: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 933: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=200, prdata=197
+# UVM_INFO apb_functional_coverage.sv(29) @ 939: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 939: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=200, prdata=197
+# UVM_INFO apb_functional_coverage.sv(29) @ 945: uvm_test_top.h_apb_env.h_fn_cov [coverage] the functional coverage is 91
+# UVM_INFO apb_scoreboard.sv(137) @ 945: uvm_test_top.h_apb_env.h_scbd [write_op_imp] Storing data: paddr=200, prdata=0
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=152, exp data=152
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=173, exp data=173
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=138, exp data=138
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=159, exp data=159
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=127, exp data=127
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=161, exp data=161
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=193, exp data=193
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=163, exp data=163
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=148, exp data=148
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=147, exp data=147
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=197, exp data=197
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=122, exp data=122
+# UVM_INFO apb_scoreboard.sv(153) @ 971: uvm_test_top.h_apb_env.h_scbd [compare] DATA IS MATCHED!! act data=102, exp data=102
+# UVM_INFO apb_test.sv(51) @ 971: uvm_test_top [apb_test] inside test run phase
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_objection.svh(1270) @ 971: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO apb_scoreboard.sv(178) @ 971: uvm_test_top.h_apb_env.h_scbd [report testcases passed!!] pass count=131, fail count=11
+# UVM_INFO apb_scoreboard.sv(187) @ 971: uvm_test_top.h_apb_env.h_scbd [ip_arr contents] ip_arr contents:
+# paddr: 3, pwdata: 152
+# paddr: 6, pwdata: 173
+# paddr: 10, pwdata: 138
+# paddr: 11, pwdata: 159
+# paddr: 12, pwdata: 127
+# paddr: 14, pwdata: 161
+# paddr: 15, pwdata: 193
+# paddr: 21, pwdata: 163
+# paddr: 22, pwdata: 148
+# paddr: 23, pwdata: 148
+# paddr: 24, pwdata: 147
+# paddr: 25, pwdata: 197
+# paddr: 28, pwdata: 122
+# paddr: 29, pwdata: 102
+# 
+# UVM_INFO apb_scoreboard.sv(193) @ 971: uvm_test_top.h_apb_env.h_scbd [op_arr contents] op_arr contents:
+# paddr: 3, prdata: 152
+# paddr: 6, prdata: 173
+# paddr: 10, prdata: 138
+# paddr: 11, prdata: 159
+# paddr: 12, prdata: 127
+# paddr: 14, prdata: 161
+# paddr: 15, prdata: 193
+# paddr: 21, prdata: 163
+# paddr: 22, prdata: 148
+# paddr: 23, prdata: 148
+# paddr: 24, prdata: 147
+# paddr: 25, prdata: 197
+# paddr: 28, prdata: 122
+# paddr: 29, prdata: 102
+# paddr: 200, prdata: 0
+# 
+# UVM_INFO /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_report_server.svh(847) @ 971: reporter [UVM/REPORT/SERVER] 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  436
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Env]     1
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [UVM/RELNOTES]     1
+# [UVMTOP]     1
+# [apb_env]     3
+# [apb_m_seq]     6
+# [apb_master_driver]     3
+# [apb_s_seq]     4
+# [apb_scoreboard]     3
+# [apb_seqr]     4
+# [apb_test]     4
+# [apb_vseq]     2
+# [apb_vseqr]     1
+# [compare]   142
+# [coverage]   117
+# [driver]     1
+# [fn cov new]     1
+# [ip_agent]     2
+# [ip_agent connect phase]     1
+# [ip_arr contents]     1
+# [ip_mon]     4
+# [m_agent]     2
+# [master_agent_config]     2
+# [op_agent]     3
+# [op_arr contents]     1
+# [op_mon]     4
+# [report testcases passed!!]     1
+# [write_ip_imp]    57
+# [write_op_imp]    60
+# 
+# ** Note: $finish    : /usr/share/questa/questasim/verilog_src/uvm-1.2/src/base/uvm_root.svh(517)
+#    Time: 971 ns  Iteration: 68  Instance: /apb_tb_top
+# End time: 07:26:17 on Jan 11,2025, Elapsed time: 0:00:02
+# Errors: 1, Warnings: 0
+End time: 07:26:17 on Jan 11,2025, Elapsed time: 0:00:13
+*** Summary *********************************************
+    qrun: Errors:   0, Warnings:   0
+    vlog: Errors:   0, Warnings:   2
+    vopt: Errors:   0, Warnings:   3
+    vsim: Errors:   1, Warnings:   0
+  Totals: Errors:   1, Warnings:   5
